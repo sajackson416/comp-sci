@@ -1,18 +1,18 @@
-package src.main.java.com.itsajackson.algorithms;
+package com.itsajackson.algorithms;
 
-import static src.main.java.com.itsajackson.util.SortUtilities.printArray;
-import static src.main.java.com.itsajackson.util.SortUtilities.swap;
-
-import java.util.Arrays;
+import static com.itsajackson.util.SortUtilities.generateRandomArray;
+import static com.itsajackson.util.SortUtilities.printArray;
+import static com.itsajackson.util.SortUtilities.swap;
 
 public class Quicksort {
 
   public static void main(String[] args) {
 
-    int[] arr = Arrays.stream(args).mapToInt(Integer::parseInt).toArray();
+    int[] arr = generateRandomArray(1000);
     sort(arr, 0, arr.length);
     printArray(arr);
     System.exit(0);
+
   }
 
   private static void sort(int[] arr, int begin, int end) {
@@ -39,7 +39,6 @@ public class Quicksort {
       }
     }
     swap(arr, fromLeft, pivot);
-    printArray(arr);
     sort(arr, begin, fromLeft);
     sort(arr, fromLeft + 1, end);
   }
